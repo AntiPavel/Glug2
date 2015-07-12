@@ -11,9 +11,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var x = 41
+    var x = 81
+    var x2 = 273
+    var x3 = 395
     var y = 1
     var z = -1
+    var z2 = -1
+    var z3 = -20
     
     
     var arrayView = [[String]]()
@@ -25,7 +29,9 @@ class ViewController: UIViewController {
         
         y = 2
         
-        move()
+        moveX()
+        moveX2()
+        moveX3()
 
         Text.text! = ""
         
@@ -68,7 +74,7 @@ class ViewController: UIViewController {
                 
                 countRow++
                 
-                if countRow == x {
+                if countRow == x || countRow == x2 || countRow == x3 {
                     
                     Text.text! +=  "🐠"
                     
@@ -84,7 +90,7 @@ class ViewController: UIViewController {
             
         }
     
-    func move() {
+    func moveX() {
         
         
         if (x - 1) % 20 == 0 {
@@ -97,6 +103,36 @@ class ViewController: UIViewController {
         }
 
         x += z
+    }
+    
+    func moveX2() {
+        
+        
+        if (x2 - 1) % 20 == 0 {
+            
+            z2 = z2 * -1
+        }
+        if x2  % 20 == 0 {
+            
+            z2 = z2 * -1
+        }
+        
+        x2 += z2
+    }
+    
+    func moveX3() {
+        
+        
+        if x3 <= 22 {
+            
+            z3 = z3 * -1
+        }
+        if x3  >= 438 {
+            
+            z3 = z3 * -1
+        }
+        
+        x3 += z3
     }
     
 }
