@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var z = -1
     var z2 = -1
     var z3 = -20
-    
+
     
     var arrayView = [[String]]()
     var row = [String]()
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     
     @IBAction func Go(sender: AnyObject) {
         
-        y = 2
+     /*   y = 2
         
         moveX()
         moveX2()
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
 
         Text.text! = ""
         
-        viewDidLoad()
+        viewDidLoad()*/
     }
     
 
@@ -48,7 +48,21 @@ class ViewController: UIViewController {
         }
         
         printView()
-
+        
+        var timer = NSTimer.scheduledTimerWithTimeInterval(6, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        
+    }
+    
+    func update() {
+        y = 2
+        
+        moveX()
+        moveX2()
+        moveX3()
+        
+        Text.text! = ""
+        
+        viewDidLoad()
     }
     
     
@@ -64,6 +78,9 @@ class ViewController: UIViewController {
             arrayView.append(row)
            
         }
+        
+        Go(NSTimer)
+        
     }
 
     func printView() {
@@ -135,6 +152,7 @@ class ViewController: UIViewController {
         x3 += z3
     }
     
+
 }
 
 
