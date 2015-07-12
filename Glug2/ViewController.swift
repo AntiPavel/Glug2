@@ -28,19 +28,13 @@ extension String {
 
 class ViewController: UIViewController {
     
-    
-
     var x = 113
     var x2 = 329
     var x3 = 175
     var z = -1
     var z2 = -1
     var z3 = -20
-    var arrayView = [[String]]()
-    var row = [String]()
-    var gameView = "🐠"
-    
-   
+
     @IBOutlet weak var Text: UITextView!
     
     @IBAction func Go(sender: AnyObject) {
@@ -62,9 +56,8 @@ class ViewController: UIViewController {
     }
     
     func printView() {
+        var gameView = ""
         
-        gameView = ""
-
         for i in 1...400 {
 
             switch (true) {
@@ -121,7 +114,28 @@ class ViewController: UIViewController {
         
         x3 += z3
     }
+
+    enum Direction {
+        case Left
+        case Right
+        case Up
+        case Down
+    }
+    
+    class AngryFish {
+        var coordinates: Int
+        let image: String
+    
+        init (coordinates: Int, image: String) {
+            self.coordinates = coordinates
+            self.image = image
+        }
+        func angryFishMove() {
+            switch (true){
+
+            default: break
+            }
+        }
+    }
 }
-
-
 

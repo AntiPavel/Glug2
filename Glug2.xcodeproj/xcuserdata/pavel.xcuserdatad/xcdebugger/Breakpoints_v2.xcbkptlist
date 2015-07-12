@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Glug2/ViewController.swift"
-            timestampString = "458425236.012557"
+            timestampString = "458427790.029965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "printView()"
             landmarkType = "5">
          </BreakpointContent>
