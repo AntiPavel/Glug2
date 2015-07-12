@@ -145,7 +145,7 @@ class ViewController: UIViewController {
             
             z3 = z3 * -1
         }
-        if x3  >= 180 {
+        if x3  >= 380 {
             
             z3 = z3 * -1
         }
