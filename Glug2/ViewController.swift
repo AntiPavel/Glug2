@@ -48,9 +48,9 @@ class ViewController: UIViewController {
     
     func didArrayView() {
      
-        for i in 0...9 {
+        for i in 0...19 {
  
-            for j in 0...11 {
+            for j in 0...21 {
                
                 row.append("⚪️")
                 
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
                         Text.text! += i
                     }
             
-                if countRow % 10 == 0 {
+                if countRow % 20 == 0 {
                     Text.text! += "\n"
                 }
             }
@@ -87,11 +87,11 @@ class ViewController: UIViewController {
     func move() {
         
         
-        if (x - 1) % 10 == 0 {
+        if (x - 1) % 20 == 0 {
             
             z = z * -1
         }
-        if x  % 10 == 0 {
+        if x  % 20 == 0 {
             
             z = z * -1
         }
