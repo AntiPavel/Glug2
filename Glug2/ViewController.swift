@@ -11,9 +11,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var x = 81
-    var x2 = 273
-    var x3 = 395
+    var x = 61
+    var x2 = 129
+    var x3 = 175
     var y = 1
     var z = -1
     var z2 = -1
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         
         printView()
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(6, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
     }
     
@@ -62,7 +62,8 @@ class ViewController: UIViewController {
         
         Text.text! = ""
         
-        viewDidLoad()
+        printView()
+       
     }
     
     
@@ -70,7 +71,7 @@ class ViewController: UIViewController {
      
         for i in 0...19 {
  
-            for j in 0...21 {
+            for j in 0...19 {
                
                 row.append("⚪️")
                 
@@ -140,11 +141,11 @@ class ViewController: UIViewController {
     func moveX3() {
         
         
-        if x3 <= 22 {
+        if x3 <= 20 {
             
             z3 = z3 * -1
         }
-        if x3  >= 438 {
+        if x3  >= 180 {
             
             z3 = z3 * -1
         }
