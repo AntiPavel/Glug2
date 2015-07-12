@@ -18,8 +18,6 @@ class ViewController: UIViewController {
     var z = -1
     var z2 = -1
     var z3 = -20
-
-    
     var arrayView = [[String]]()
     var row = [String]()
    
@@ -27,18 +25,8 @@ class ViewController: UIViewController {
     
     @IBAction func Go(sender: AnyObject) {
         
-     /*   y = 2
-        
-        moveX()
-        moveX2()
-        moveX3()
-
-        Text.text! = ""
-        
-        viewDidLoad()*/
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,8 +37,7 @@ class ViewController: UIViewController {
         
         printView()
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-        
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
     
     func update() {
@@ -66,7 +53,6 @@ class ViewController: UIViewController {
        
     }
     
-    
     func didArrayView() {
      
         for i in 0...19 {
@@ -74,13 +60,11 @@ class ViewController: UIViewController {
             for j in 0...19 {
                
                 row.append("⚪️")
-                
             }
             arrayView.append(row)
            
         }
-        
-        Go(NSTimer)
+
         
     }
 
@@ -104,12 +88,10 @@ class ViewController: UIViewController {
                     Text.text! += "\n"
                 }
             }
-                
             
         }
     
     func moveX() {
-        
         
         if (x - 1) % 20 == 0 {
             
@@ -125,7 +107,6 @@ class ViewController: UIViewController {
     
     func moveX2() {
         
-        
         if (x2 - 1) % 20 == 0 {
             
             z2 = z2 * -1
@@ -140,7 +121,6 @@ class ViewController: UIViewController {
     
     func moveX3() {
         
-        
         if x3 <= 20 {
             
             z3 = z3 * -1
@@ -152,7 +132,6 @@ class ViewController: UIViewController {
         
         x3 += z3
     }
-    
 
 }
 
