@@ -8,18 +8,38 @@
 
 import UIKit
 
+extension String {
+    
+    mutating func insert(string: String, atIndex idx: Int) {
+        let i = advance(self.startIndex, idx)
+        let range = Range(start: i, end: i)
+        self.removeAtIndex(i)
+        self.replaceRange(range, with: string)
+    }
+    
+    mutating func insertWithoutDelete(string: String, atIndex idx: Int) {
+        let i = advance(self.startIndex, idx)
+        let range = Range(start: i, end: i)
+        self.replaceRange(range, with: string)
+    }
+    
+    }
+
 
 class ViewController: UIViewController {
+    
+    
 
-    var x = 61
-    var x2 = 129
+    var x = 113
+    var x2 = 329
     var x3 = 175
-    var y = 1
     var z = -1
     var z2 = -1
     var z3 = -20
     var arrayView = [[String]]()
     var row = [String]()
+    var gameView = "🐠"
+    
    
     @IBOutlet weak var Text: UITextView!
     
@@ -29,67 +49,34 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        if y == 1 {
-            didArrayView()
-        }
-        
-        printView()
-        
+   
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
     
     func update() {
-        y = 2
-        
+
         moveX()
         moveX2()
         moveX3()
-        
-        Text.text! = ""
-        
         printView()
-       
     }
     
-    func didArrayView() {
-     
-        for i in 0...19 {
- 
-            for j in 0...19 {
-               
-                row.append("⚪️")
-            }
-            arrayView.append(row)
-           
-        }
-
-        
-    }
-
     func printView() {
         
-            var countRow = 0
+        gameView = ""
 
-            for i in row {
-                
-                countRow++
-                
-                if countRow == x || countRow == x2 || countRow == x3 {
-                    
-                    Text.text! +=  "🐠"
-                    
-                } else {
-                        Text.text! += i
-                    }
-            
-                if countRow % 20 == 0 {
-                    Text.text! += "\n"
-                }
+        for i in 1...400 {
+
+            switch (true) {
+            case i == x: gameView = gameView + "⚫️"
+            case i == x2: gameView = gameView + "⚫️"
+            case i == x3: gameView = gameView + "⚫️"
+            default: gameView = gameView + "⚪️"
             }
-            
         }
+        
+        Text.text! = gameView
+    }
     
     func moveX() {
         
@@ -111,6 +98,7 @@ class ViewController: UIViewController {
             
             z2 = z2 * -1
         }
+        
         if x2  % 20 == 0 {
             
             z2 = z2 * -1
@@ -125,6 +113,7 @@ class ViewController: UIViewController {
             
             z3 = z3 * -1
         }
+        
         if x3  >= 380 {
             
             z3 = z3 * -1
@@ -132,7 +121,6 @@ class ViewController: UIViewController {
         
         x3 += z3
     }
-
 }
 
 
