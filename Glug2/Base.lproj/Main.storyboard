@@ -17,20 +17,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GY6-u5-31N">
-                                <rect key="frame" x="16" y="0.0" width="568" height="500"/>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" misplaced="YES" scrollEnabled="NO" delaysContentTouches="NO" canCancelContentTouches="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GY6-u5-31N">
+                                <rect key="frame" x="16" y="38" width="568" height="331"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVi-HJ-hlb">
-                                <rect key="frame" x="277" y="531" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czj-zp-mBi">
+                                <rect key="frame" x="231" y="519" width="30" height="30"/>
+                                <state key="normal" title="Left">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Go:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RIt-pe-dC7"/>
+                                    <action selector="Left:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iEV-3h-vGR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6G-J5-f64">
+                                <rect key="frame" x="285" y="481" width="30" height="30"/>
+                                <state key="normal" title="Up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Up:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLQ-QB-3SL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgT-QL-h9G">
+                                <rect key="frame" x="339" y="519" width="37" height="30"/>
+                                <state key="normal" title="Right">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Right:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1kV-7F-Fac"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdo-H9-ncG">
+                                <rect key="frame" x="280" y="519" width="40" height="30"/>
+                                <state key="normal" title="Down">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Down:" destination="BYZ-38-t0r" eventType="touchDown" id="GtZ-eN-p7L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -38,15 +64,36 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="GY6-u5-31N" secondAttribute="trailing" id="0vv-K7-wJx"/>
                             <constraint firstItem="GY6-u5-31N" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="15L-GG-O0a"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GY6-u5-31N" secondAttribute="bottom" constant="100" id="6Ie-p5-NX1"/>
-                            <constraint firstItem="dVi-HJ-hlb" firstAttribute="top" secondItem="GY6-u5-31N" secondAttribute="bottom" constant="31" id="8zH-rW-GQt"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GY6-u5-31N" secondAttribute="bottom" constant="230" id="6Ie-p5-NX1"/>
+                            <constraint firstItem="GY6-u5-31N" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="CUl-yX-oCN"/>
+                            <constraint firstItem="M6G-J5-f64" firstAttribute="centerX" secondItem="Hdo-H9-ncG" secondAttribute="centerX" id="Jyc-BJ-Qyb"/>
+                            <constraint firstItem="GY6-u5-31N" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="MWL-Nc-4YD"/>
+                            <constraint firstItem="M6G-J5-f64" firstAttribute="trailing" secondItem="Czj-zp-mBi" secondAttribute="trailing" constant="54" id="RUO-Bi-gtM"/>
                             <constraint firstItem="GY6-u5-31N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Sch-H7-nqe"/>
+                            <constraint firstItem="Hdo-H9-ncG" firstAttribute="top" secondItem="XgT-QL-h9G" secondAttribute="top" id="UUq-g2-9iW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GY6-u5-31N" secondAttribute="trailing" id="UlK-DE-30f"/>
+                            <constraint firstItem="Hdo-H9-ncG" firstAttribute="top" secondItem="Czj-zp-mBi" secondAttribute="top" id="WMO-Pu-z9L"/>
+                            <constraint firstItem="M6G-J5-f64" firstAttribute="leading" secondItem="XgT-QL-h9G" secondAttribute="leading" constant="-54" id="XNE-GG-Ce8"/>
+                            <constraint firstItem="GY6-u5-31N" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Xa5-wf-H68"/>
+                            <constraint firstAttribute="centerX" secondItem="Hdo-H9-ncG" secondAttribute="centerX" id="YQk-4e-w3r"/>
                             <constraint firstItem="GY6-u5-31N" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="agL-xo-oBS"/>
+                            <constraint firstAttribute="centerY" secondItem="M6G-J5-f64" secondAttribute="centerY" constant="-196" id="fYP-Gp-4g5"/>
+                            <constraint firstItem="GY6-u5-31N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lyY-kf-0gh"/>
+                            <constraint firstAttribute="centerY" secondItem="Hdo-H9-ncG" secondAttribute="centerY" constant="-234" id="nEe-OP-tDX"/>
                             <constraint firstItem="GY6-u5-31N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nMT-P1-vff"/>
-                            <constraint firstItem="GY6-u5-31N" firstAttribute="centerX" secondItem="dVi-HJ-hlb" secondAttribute="centerX" id="xsL-ne-Y2D"/>
-                            <constraint firstAttribute="centerX" secondItem="dVi-HJ-hlb" secondAttribute="centerX" id="z5e-rv-asR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0vv-K7-wJx"/>
+                                <exclude reference="15L-GG-O0a"/>
+                                <exclude reference="CUl-yX-oCN"/>
+                                <exclude reference="Sch-H7-nqe"/>
+                                <exclude reference="UlK-DE-30f"/>
+                                <exclude reference="agL-xo-oBS"/>
+                                <exclude reference="nMT-P1-vff"/>
+                                <exclude reference="6Ie-p5-NX1"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="Text" destination="GY6-u5-31N" id="zOU-QN-fma"/>
