@@ -26,11 +26,20 @@ extension String {
 
 class ViewController: UIViewController {
     
+    
+    
     // Mark test instanse
+    
+    let fish3CoordDef = 45
+    let fish2CoordDef = 183
+    let fishCoordDef = 309
+    let heroCoordDef = 12
+    
     var angryFish3 = AngryFish(coordinates: 45, image: "⚫️", dir: .Down)
     var angryFish2 = AngryFish(coordinates: 183, image: "⚫️", dir: .Left)
     var angryFish = AngryFish(coordinates: 309, image: "⚫️", dir: .Right)
     var hero = Hero(coordinates: 12, turn: .Left)
+
     
     // View elements
     
@@ -76,13 +85,23 @@ class ViewController: UIViewController {
         var gameView = ""
         
         for i in 1...400 {
-
-            switch (true) {
-            case i == angryFish3.coordinates: gameView = gameView + angryFish3.image
-            case i == angryFish2.coordinates: gameView = gameView + angryFish2.image
-            case i == angryFish.coordinates: gameView = gameView + angryFish.image
-            case i == hero.coordinates: gameView = gameView + hero.image
-            default: gameView = gameView + "⚪️"
+            
+            if hero.coordinates == angryFish.coordinates || hero.coordinates == angryFish2.coordinates || hero.coordinates == angryFish3.coordinates {
+                
+                hero.coordinates = heroCoordDef
+                angryFish.coordinates = fishCoordDef
+                angryFish2.coordinates = fish2CoordDef
+                angryFish3.coordinates = fish3CoordDef
+                
+            } else {
+                
+                switch (true) {
+                case i == angryFish3.coordinates: gameView = gameView + angryFish3.image
+                case i == angryFish2.coordinates: gameView = gameView + angryFish2.image
+                case i == angryFish.coordinates: gameView = gameView + angryFish.image
+                case i == hero.coordinates: gameView = gameView + hero.image
+                default: gameView = gameView + "⚪️"
+                }
             }
         }
         
