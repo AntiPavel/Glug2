@@ -24,27 +24,25 @@ extension String {
     }
     }
 
+// temp data for test
+let fish3CoordDef = 45
+let fish2CoordDef = 183
+let fishCoordDef = 309
+let heroCoordDef = 12
+var count = 1
+
+
 class ViewController: UIViewController {
     
-    
-    
     // Mark test instanse
-    
-    let fish3CoordDef = 45
-    let fish2CoordDef = 183
-    let fishCoordDef = 309
-    let heroCoordDef = 12
-    
-    var angryFish3 = AngryFish(coordinates: 45, image: "⚫️", dir: .Down)
-    var angryFish2 = AngryFish(coordinates: 183, image: "⚫️", dir: .Left)
-    var angryFish = AngryFish(coordinates: 309, image: "⚫️", dir: .Right)
+    var angryFish3 = AngryFish(coordinates: 45, image: "⚫️", dir: .Down, speed: 1)
+    var angryFish2 = AngryFish(coordinates: 183, image: "⚫️", dir: .Left, speed: 2)
+    var angryFish = AngryFish(coordinates: 309, image: "⚫️", dir: .Right, speed: 3)
     var hero = Hero(coordinates: 12, turn: .Left)
 
-    
     // View elements
     
     @IBOutlet weak var Text: UITextView!
-    
     
     @IBAction func Up(sender: AnyObject) {
           hero.heroMove(.Up)
@@ -66,17 +64,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
     
     func update() {
-
+        
+        count++
         angryFish3.angryFishMove()
         angryFish2.angryFishMove()
         angryFish.angryFishMove()
         printView()
-        
     }
     
     // Mark view creator
@@ -166,6 +164,7 @@ class ViewController: UIViewController {
     
     class AngryFish {
         
+        var speed : Int
         var coordinates: Int {
             didSet {
                 switch true {
@@ -185,19 +184,23 @@ class ViewController: UIViewController {
         let image: String
         var dir : Direction
     
-        init (coordinates: Int, image: String, dir: Direction) {
+        init (coordinates: Int, image: String, dir: Direction, speed: Int) {
             self.coordinates = coordinates
             self.image = image
             self.dir = dir
+            self.speed = speed
         }
         
         func angryFishMove() {
-            switch dir {
-            case .Left:   coordinates--
-            case .Right:  coordinates++
-            case .Up:     coordinates -= 20
-            case .Down:   coordinates += 20
-            default: break
+            if  count % speed == 0 {
+           // } else {
+                switch dir {
+                case .Left:   coordinates--
+                case .Right:  coordinates++
+                case .Up:     coordinates -= 20
+                case .Down:   coordinates += 20
+                default: break
+                }
             }
         }
     }
