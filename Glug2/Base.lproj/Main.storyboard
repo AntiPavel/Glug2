@@ -23,15 +23,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdo-H9-ncG">
-                                <rect key="frame" x="280" y="519" width="40" height="30"/>
-                                <state key="normal" title="Down">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Down:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Kp-ge-s0A"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czj-zp-mBi">
                                 <rect key="frame" x="231" y="519" width="30" height="30"/>
                                 <state key="normal" title="Left">
@@ -57,6 +48,15 @@
                                 </state>
                                 <connections>
                                     <action selector="Right:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1kV-7F-Fac"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdo-H9-ncG">
+                                <rect key="frame" x="280" y="519" width="40" height="30"/>
+                                <state key="normal" title="Down">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Down:" destination="BYZ-38-t0r" eventType="touchDown" id="GtZ-eN-p7L"/>
                                 </connections>
                             </button>
                         </subviews>
