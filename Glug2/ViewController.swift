@@ -22,24 +22,38 @@ extension String {
         let range = Range(start: i, end: i)
         self.replaceRange(range, with: string)
     }
-    
     }
-
 
 class ViewController: UIViewController {
     
-    var x = 113
-    var x2 = 329
-    var x3 = 175
-    var z = -1
-    var z2 = -1
-    var z3 = -20
-
+    // Mark test instanse
+    var angryFish3 = AngryFish(coordinates: 45, image: "⚫️", dir: .Down)
+    var angryFish2 = AngryFish(coordinates: 183, image: "⚫️", dir: .Left)
+    var angryFish = AngryFish(coordinates: 309, image: "⚫️", dir: .Right)
+    var hero = Hero(coordinates: 12, turn: .Left)
+    
+    // View elements
+    
     @IBOutlet weak var Text: UITextView!
     
-    @IBAction func Go(sender: AnyObject) {
-        
+    
+    @IBAction func Up(sender: AnyObject) {
+          hero.heroMove(.Up)
     }
+    
+    @IBAction func Down(sender: AnyObject) {
+        hero.heroMove(.Down)
+    }
+    
+    @IBAction func Left(sender: AnyObject) {
+        hero.heroMove(.Left)
+    }
+    
+    @IBAction func Right(sender: AnyObject) {
+        hero.heroMove(.Right)
+    }
+    
+    //Veiw didLoad with update view timer
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +63,14 @@ class ViewController: UIViewController {
     
     func update() {
 
-        moveX()
-        moveX2()
-        moveX3()
+        angryFish3.angryFishMove()
+        angryFish2.angryFishMove()
+        angryFish.angryFishMove()
         printView()
+        
     }
+    
+    // Mark view creator
     
     func printView() {
         var gameView = ""
@@ -61,60 +78,19 @@ class ViewController: UIViewController {
         for i in 1...400 {
 
             switch (true) {
-            case i == x: gameView = gameView + "⚫️"
-            case i == x2: gameView = gameView + "⚫️"
-            case i == x3: gameView = gameView + "⚫️"
+            case i == angryFish3.coordinates: gameView = gameView + angryFish3.image
+            case i == angryFish2.coordinates: gameView = gameView + angryFish2.image
+            case i == angryFish.coordinates: gameView = gameView + angryFish.image
+            case i == hero.coordinates: gameView = gameView + hero.image
             default: gameView = gameView + "⚪️"
             }
         }
         
         Text.text! = gameView
     }
-    
-    func moveX() {
-        
-        if (x - 1) % 20 == 0 {
-            
-            z = z * -1
-        }
-        if x  % 20 == 0 {
-            
-            z = z * -1
-        }
 
-        x += z
-    }
+    // direction enum for all obj
     
-    func moveX2() {
-        
-        if (x2 - 1) % 20 == 0 {
-            
-            z2 = z2 * -1
-        }
-        
-        if x2  % 20 == 0 {
-            
-            z2 = z2 * -1
-        }
-        
-        x2 += z2
-    }
-    
-    func moveX3() {
-        
-        if x3 <= 20 {
-            
-            z3 = z3 * -1
-        }
-        
-        if x3  >= 380 {
-            
-            z3 = z3 * -1
-        }
-        
-        x3 += z3
-    }
-
     enum Direction {
         case Left
         case Right
@@ -122,17 +98,86 @@ class ViewController: UIViewController {
         case Down
     }
     
-    class AngryFish {
-        var coordinates: Int
-        let image: String
+    enum Turn {
+        case Left
+        case Right
+    }
     
-        init (coordinates: Int, image: String) {
+    // Mark game char
+    
+    struct Hero {
+
+        var image : String {
+            switch turn {
+            case .Left: return "🔙"
+            case .Right: return "🔜"
+            }
+        }
+        
+        var coordinates : Int {
+            didSet {
+                switch true {
+                case coordinates > 400: coordinates = oldValue
+                case coordinates <= 0: coordinates = oldValue
+                case coordinates % 20 == 0 && turn == .Left: coordinates = oldValue
+                case (coordinates - 1) % 20 == 0  && turn == .Right: coordinates = oldValue
+                default: break
+                }
+            }
+        }
+        
+        var turn: Turn
+        
+        mutating func heroMove (step: Direction) {
+            
+            switch step {
+            case .Left:   coordinates--
+                turn = .Left
+            case .Right:  coordinates++
+                turn = .Right
+            case .Up:     coordinates -= 20
+            case .Down:   coordinates += 20
+            default: break
+            }
+        }
+        
+    }
+    
+    // Mark computer char
+    
+    class AngryFish {
+        
+        var coordinates: Int {
+            didSet {
+                switch true {
+                case coordinates > 400: coordinates = oldValue - 20
+                    dir = .Up
+                case coordinates <= 0: coordinates = oldValue + 20
+                    dir = .Down
+                case coordinates % 20 == 0 && dir == .Left: coordinates = oldValue + 1
+                    dir = .Right
+                case (coordinates - 1) % 20 == 0  && dir == .Right: coordinates = oldValue - 1
+                    dir = .Left
+                default: break
+                }
+            }
+        }
+        
+        let image: String
+        var dir : Direction
+    
+        init (coordinates: Int, image: String, dir: Direction) {
             self.coordinates = coordinates
             self.image = image
+            self.dir = dir
         }
+        
         func angryFishMove() {
-            switch (true){
-
+            switch dir {
+            case .Left:   coordinates--
+            case .Right:  coordinates++
+            case .Up:     coordinates -= 20
+            case .Down:   coordinates += 20
             default: break
             }
         }
